@@ -99,6 +99,58 @@ body {
     .btn {
     backdrop-filter: blur(10px);
 }
+    /* MOBILE APP STYLE */
+.app-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-top: 12px;
+    padding: 14px 16px;
+
+    border-radius: 14px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+
+    transition: 0.2s;
+}
+
+/* ICON */
+.app-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+/* TEXT */
+.app-btn span {
+    flex: 1;
+    text-align: left;
+}
+
+/* HOVER */
+.app-btn:hover {
+    transform: scale(1.03);
+    background: rgba(255,255,255,0.15);
+}
+
+/* TAP EFFECT (kayak app) */
+.app-btn:active {
+    transform: scale(0.97);
+}
+
+/* WHATSAPP ACCENT */
+.whatsapp {
+    border-left: 4px solid #25D366;
+}
+
+/* DISCORD ACCENT */
+.discord {
+    border-left: 4px solid #5865F2;
+}
     /* NEBULA */
 .nebula {
     position: fixed;
@@ -520,12 +572,14 @@ a {
 <div class="box">
     <h2>Community</h2>
 
-    <a href="https://chat.whatsapp.com/EiWvD80pFck6qY0IwaozAX" target="_blank" class="btn whatsapp">
-        💬 Join WhatsApp Group
+    <a href="https://chat.whatsapp.com/EiWvD80pFck6qY0IwaozAX" target="_blank" class="app-btn whatsapp">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+        <span>WhatsApp Group</span>
     </a>
 
-    <a href="https://discord.gg/2faWu22Js" target="_blank" class="btn discord">
-        🎮 Join Discord Server
+    <a href="https://discord.gg/2faWu22Js" target="_blank" class="app-btn discord">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png">
+        <span>Discord Server</span>
     </a>
 </div>
 <script>
