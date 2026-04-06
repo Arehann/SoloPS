@@ -36,6 +36,66 @@ body {
     background-color: #0a001f;
     overflow-x: hidden;
 }
+    /* BASE BUTTON */
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    margin-top: 15px;
+    padding: 14px;
+    border-radius: 12px;
+
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+/* HOVER ANIMASI */
+.btn::before {
+    content: "";
+    position: absolute;
+    width: 300%;
+    height: 300%;
+    top: -100%;
+    left: -100%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+    transform: rotate(45deg);
+    transition: 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn:hover {
+    transform: scale(1.07);
+}
+
+/* WHATSAPP STYLE */
+.whatsapp {
+    background: linear-gradient(45deg, #25D366, #128C7E);
+    box-shadow: 0 0 15px #25D366;
+}
+
+.whatsapp:hover {
+    box-shadow: 0 0 25px #25D366;
+}
+
+/* DISCORD STYLE */
+.discord {
+    background: linear-gradient(45deg, #5865F2, #404EED);
+    box-shadow: 0 0 15px #5865F2;
+}
+
+.discord:hover {
+    box-shadow: 0 0 25px #5865F2;
+}
 
 /* Logo intro */
 .intro-logo {
@@ -377,11 +437,11 @@ a {
 <div class="box">
     <h2>Community</h2>
 
-    <a href="https://chat.whatsapp.com/EiWvD80pFck6qY0IwaozAX" target="_blank">
-        🔗 Join WhatsApp Group
+    <a href="https://chat.whatsapp.com/EiWvD80pFck6qY0IwaozAX" target="_blank" class="btn whatsapp">
+        💬 Join WhatsApp Group
     </a>
 
-    <a href="https://discord.gg/2faWu22Js" target="_blank">
+    <a href="https://discord.gg/2faWu22Js" target="_blank" class="btn discord">
         🎮 Join Discord Server
     </a>
 </div>
