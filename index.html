@@ -37,11 +37,11 @@ body {
     overflow-x: hidden;
 }
     /* BASE BUTTON */
+/* BUTTON BASE */
 .btn {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
+    gap: 12px;
 
     margin-top: 15px;
     padding: 14px;
@@ -52,48 +52,33 @@ body {
     color: white;
 
     transition: 0.3s;
-    position: relative;
-    overflow: hidden;
 }
 
-/* HOVER ANIMASI */
-.btn::before {
-    content: "";
-    position: absolute;
-    width: 300%;
-    height: 300%;
-    top: -100%;
-    left: -100%;
-    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
-    transform: rotate(45deg);
-    transition: 0.5s;
+/* ICON */
+.btn img {
+    width: 28px;
+    height: 28px;
 }
 
-.btn:hover::before {
-    left: 100%;
-}
-
-.btn:hover {
-    transform: scale(1.07);
-}
-
-/* WHATSAPP STYLE */
+/* WHATSAPP */
 .whatsapp {
     background: linear-gradient(45deg, #25D366, #128C7E);
     box-shadow: 0 0 15px #25D366;
 }
 
 .whatsapp:hover {
+    transform: scale(1.05);
     box-shadow: 0 0 25px #25D366;
 }
 
-/* DISCORD STYLE */
+/* DISCORD */
 .discord {
     background: linear-gradient(45deg, #5865F2, #404EED);
     box-shadow: 0 0 15px #5865F2;
 }
 
 .discord:hover {
+    transform: scale(1.05);
     box-shadow: 0 0 25px #5865F2;
 }
     /* NEBULA */
