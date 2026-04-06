@@ -19,6 +19,23 @@
     animation: fadeOut 1s ease forwards;
     animation-delay: 3s;
 }
+    /* Canvas full screen */
+#stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+/* Background galaxy ungu */
+body {
+    background: radial-gradient(circle at 30% 30%, #2b1055, #000000 80%),
+                radial-gradient(circle at 70% 70%, #3a0ca3, #000000 80%);
+    background-color: #0a001f;
+    overflow-x: hidden;
+}
 
 /* Logo intro */
 .intro-logo {
@@ -191,9 +208,10 @@ body {
 
 /* Background RGB + animasi */
 body {
-    background: linear-gradient(-45deg, #ff0000, #00ff00, #0000ff, #00ffff);
-    background-size: 400% 400%;
-    animation: gradient 10s ease infinite;
+    background: radial-gradient(circle at 20% 20%, #2b1055, #000000 80%),
+                radial-gradient(circle at 80% 80%, #3a0ca3, #000000 80%);
+    background-color: #0a001f;
+    overflow-x: hidden;
 }
 
 @keyframes gradient {
@@ -309,6 +327,7 @@ a {
     <div class="intro-logo">SoloPS</div>
 </div>
 <body>
+    <canvas id="stars"></canvas>
     <div id="intro">
     <div class="intro-logo">SoloPS</div>
 </div>
@@ -427,6 +446,64 @@ setTimeout(() => {
 setTimeout(() => {
     document.getElementById("intro").style.display = "none";
 }, 4000);
+</script>
+    <script>
+const canvas = document.getElementById("stars");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let stars = [];
+
+/* Buat bintang */
+for(let i = 0; i < 150; i++){
+    stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 2,
+        speed: Math.random() * 0.5,
+        opacity: Math.random()
+    });
+}
+
+/* Animasi */
+function draw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    stars.forEach(star => {
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.size, 0, Math.PI*2);
+        ctx.fillStyle = "white";
+        ctx.globalAlpha = star.opacity;
+        ctx.fill();
+
+        /* gerak turun pelan */
+        star.y += star.speed;
+
+        /* reset kalau keluar layar */
+        if(star.y > canvas.height){
+            star.y = 0;
+            star.x = Math.random() * canvas.width;
+        }
+
+        /* efek kedip */
+        star.opacity += (Math.random() - 0.5) * 0.05;
+        if(star.opacity < 0.2) star.opacity = 0.2;
+        if(star.opacity > 1) star.opacity = 1;
+    });
+
+    ctx.globalAlpha = 1;
+    requestAnimationFrame(draw);
+}
+
+draw();
+
+/* Responsive */
+window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
 </script>
 </body>
 </html>
